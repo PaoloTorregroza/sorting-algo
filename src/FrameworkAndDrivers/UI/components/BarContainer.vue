@@ -1,25 +1,22 @@
 <template>
   <div class="bar-container">
-    <Bar :value="10" :state="'normal'" />
-    <Bar :value="50" :state="'normal'"/>
-    <Bar :value="90" :state="'normal'"/>
-    <Bar :value="10" :state="'normal'"/>
-    <Bar :value="40" :state="'selected'"/>
-    <Bar :value="100" :state="'selected'"/>
-    <Bar :value="500" :state="'normal'"/>
-    <Bar :value="120" :state="'normal'"/>
-    <Bar :value="110" :state="'normal'"/>
-    <Bar :value="10" :state="'normal'" />
-    <Bar :value="500" :state="'normal'"/>
-    <Bar :value="120" :state="'normal'"/>
-    <Bar :value="110" :state="'normal'"/>
-    <Bar :value="140" :state="'done'"/>
-    <Bar :value="540" :state="'done'"/>
-
+      <transition-group name="bar-complete" tag="p">
+        <Bar
+            v-for="(item, index) in items"
+            v-bind:key="index"
+            :value="item.value"
+            :state="item.state"
+            class="bar-complete-item"
+            >
+        </Bar>
+      </transition-group>
+      <button v-on:click="shuffle">Mezclar</button>
   </div>
 </template>
 
 <script lang="ts">
+import * as _ from 'lodash';
+
 import { Component, Vue } from 'vue-property-decorator';
 import Bar from '../items/Bar.vue';
 
@@ -28,17 +25,77 @@ import Bar from '../items/Bar.vue';
     Bar,
   },
 })
-export default class BarContainer extends Vue {}
+
+export default class BarContainer extends Vue {
+  public items: Array<any> = [
+    {
+      value: 100,
+      state: 'done'
+    },
+    {
+      value: 120,
+      state: 'normal'
+    },
+    {
+      value: 160,
+      state: 'normal'
+    },
+    {
+      value: 30,
+      state: 'done'
+    },
+    {
+      value: 300,
+      state: 'done'
+    },
+    {
+      value: 120,
+      state: 'normal'
+    },
+    {
+      value: 10,
+      state: 'done'
+    },
+    {
+      value: 135,
+      state: 'normal'
+    },
+  ]
+
+  public shuffle(): void {
+        this.items = _.shuffle(this.items)
+  }
+  
+  public randomIndex (): number {
+        return Math.floor(Math.random() * this.items.length)
+  }
+}
 </script>
 
 <style scoped>
-.bar-container {
-    height: 85vh;
+  .bar-container {
+      height: 85vh;
+      background-color: #3B4252;
+      padding: 15px;
+      padding-left: 12%;
+      padding-right: 12%;
+  }
+
+  .bar-container > p {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: flex-end;
-    background-color: #3B4252;
-    padding: 15px;
-    padding-left: 12%;
-    padding-right: 12%;
-}
+    transition: all 1s;
+  }
+
+  .bar-complete-enter, .bar-complete-leave-to {
+    opacity:0;
+    transform: translateY(30px);
+  }
+
+  .bar-complete-leave-active {
+    position: absolute;
+  }
+
 </style>
