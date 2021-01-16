@@ -1,5 +1,6 @@
 <template>
   <div :class="'bar ' + state" :style="{ height: value + 'px' }">
+    {{ value }}
   </div>
 </template>
 
@@ -22,6 +23,7 @@ export default class Bar extends BarProps {
 .bar {
     width: 100%;
     margin-left: 10px;
+    transition: all 1s;
     margin-right: 10px;
     border: 3px solid black;
 }
