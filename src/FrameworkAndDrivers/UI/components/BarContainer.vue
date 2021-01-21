@@ -27,7 +27,7 @@ import Bar from '../items/Bar.vue';
 })
 
 export default class BarContainer extends Vue {
-  public items: Array<any> = [
+  public items: Array<object> = [
     {
       value: 100,
       state: 'done'
