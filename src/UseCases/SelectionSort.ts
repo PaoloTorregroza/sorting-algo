@@ -1,6 +1,6 @@
 function selectionSort(list: number[] ) {
 
-    let n = list.length;
+    const n = list.length;
 
     for (let i = 0; i < n; i++) {
         
@@ -14,7 +14,7 @@ function selectionSort(list: number[] ) {
         }
 
         if (list[i] > list[menor]) {
-            let temp: number = list[i];
+            const temp: number = list[i];
             list[i] = list[menor];
             list[menor] = temp;
             

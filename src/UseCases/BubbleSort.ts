@@ -1,6 +1,6 @@
 function bubbleSort(list: number[]) {
 
-    let n = list.length;
+    const n = list.length;
     
      for (let i = 0; i < n; i++) {
          
@@ -8,7 +8,7 @@ function bubbleSort(list: number[]) {
  
           if(list[j] > list[j + 1]) {
             
-           let temp = list[j]
+           const temp = list[j]
            list[j] = list[j + 1]
            list[j + 1] = temp;   
  

@@ -1,12 +1,12 @@
 
 function InsertionSort(list: number[] ) {
 
-    let n = list.length;
+    const n = list.length;
 
     for (let i = 0; i < n; i++) {
         
         let pos: number = i;
-        let valor: number = list[i]
+        const valor: number = list[i]
         while (pos > 1 && valor < list[pos - 1]) {
 
             //cambio de lugares
