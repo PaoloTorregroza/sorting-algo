@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <NavBar />
     <BarContainer />
   </div>
 </template>
@@ -7,11 +8,13 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import BarContainer from './UI/components/BarContainer.vue';
+import NavBar from './UI/components/NavBar.vue';
 
 @Component({
   components: {
     BarContainer,
-  },
+    NavBar
+  }
 })
 export default class App extends Vue {}
 </script>
@@ -23,6 +26,5 @@ export default class App extends Vue {}
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

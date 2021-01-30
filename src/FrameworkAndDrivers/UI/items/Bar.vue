@@ -12,31 +12,30 @@ const BarProps = Vue.extend({
     value: Number,
     state: String
   }
-})
+});
 
-export default class Bar extends BarProps {
-
-}
+@Component
+export default class Bar extends BarProps {}
 </script>
 
 <style scoped>
 .bar {
-    width: 100%;
-    margin-left: 10px;
-    transition: all 1s;
-    margin-right: 10px;
-    border: 3px solid black;
+  width: 100%;
+  margin-left: 10px;
+  transition: all 1s;
+  margin-right: 10px;
+  border: 3px solid black;
 }
 
 .done {
-    background-color: #A3BE8C;
+  background-color: #a3be8c;
 }
 
 .selected {
-    background-color: #B48EAD;
+  background-color: #b48ead;
 }
 
 .normal {
-    background-color: #88C0D0;
+  background-color: #88c0d0;
 }
 </style>
