@@ -14,7 +14,7 @@ function createStepsArr(
 
     res.push(new Step(arr[i], state));
   }
-  console.log(res);
+  
   return res;
 }
 
